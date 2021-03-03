@@ -1,0 +1,30 @@
+version: '3.7'
+
+volumes:
+        local_neo4j_data: {}  
+        local_neo4j_config: {}
+        local_neo4j_data_backups: {}
+
+services:
+        web:
+                build: .
+                command: python /code/manage.py runserver 0.0.0.0:8000
+                volumes:
+                        - .:/code
+                ports:
+                        - 8000:8000
+                          #                depends_on:
+                          #                - neo4j
+ 
+                  #neo4j:
+                  #build:
+                  #      context: .
+                  #      dockerfile: ./dockerfile_neo4j    
+                  #                image: guai_local_neo4j
+                  #                ports:
+                  #      - 7474:7474
+                  #      - 7687:7687
+                  #                        - 7473:7473
+                  #                volumes:
+                  #                        - local_neo4j_data:/data
+                          # - local_neo4j_config:/conf/neo4j.conf
