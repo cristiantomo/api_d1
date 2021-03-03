@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 django = "*"
+djangorestframework = "*"
+neo4j = "*"
 
 [dev-packages]
 
